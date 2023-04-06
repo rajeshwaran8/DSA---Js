@@ -40,35 +40,7 @@ class Node {
       this.length++;
     }
 
-    insert(index, value) {
-      if (index >= this.length) {
-        return this.append(value);
-      }
-  
-      if (index === 0) {
-        return this.prepend(value);
-      }
-  
-      const node = new Node(value);
-      const leader = this.traverseToIndex(index - 1);
-      const follower = leader.next;
-      leader.next = node;
-      node.next = follower;
-      this.length++;
-    }
-
-    traverseToIndex(index) {
-      let currentNode = this.head;
-      let counter = 0;
-  
-      while (counter !== index) {
-        currentNode = currentNode.next;
-        counter++;
-      }
-  
-      return currentNode;
-    }
-  
+    
     printList() {
       const array = [];
   
@@ -89,6 +61,5 @@ class Node {
   linkedList.append(5);
   linkedList.prepend(1);
   linkedList.prepend(0);
-  linkedList.insert(2,7)
   linkedList.printList(); 
   
